@@ -1,0 +1,74 @@
+html {
+  font-size: 14px;
+}
+
+header .blog-masthead {
+  background-color: #b34848;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: #b34848;
+}
+
+.blog-post-title a {
+  color: #b34848;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: 1px solid grey;
+  color: #000;
+  border-radius: 15px;
+  -webkit-appearance: none;
+}
+
+textarea {
+  resize: none;
+  height: 400px;
+}
+
+label {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.06rem 1rem;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  background-color: #b34848;
+  border: 0;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  transition: ease 0.2s;
+  border-radius: 15px;
+}
+
+.u-gap-bottom {
+  margin-bottom: 15px;
+}
