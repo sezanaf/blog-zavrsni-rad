@@ -1,16 +1,11 @@
 <?php
 include('db.php');
-?>
-<?php
-$authorSql = "SELECT * FROM author ORDER BY author.first_name";
-$authors = getDataFromDatabase($connection, $authorSql);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $title = $_POST['title'];
-  $body = $_POST['body'];
-  $author = $_POST['author'];
-  $author = $_POST['author'];
-  $sql = "INSERT INTO posts (title, body, author_id, created_at) VALUES ('$title', '$body', '$author', CURDATE())";
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  $gender = $_POST['gender'];
+  $sql = "INSERT INTO author (first_name, last_name, gender) VALUES ('$first_name', '$last_name', '$gender')";
   insertIntoDB($connection, $sql);
   header('location: index.php');
 }
@@ -42,33 +37,27 @@ include('header.php');
   <main role="main" class="container">
     <div class="row">
       <div class="col-sm-8 blog-main">
-        <form method="POST" action="create-post.php">
-          <div class="u-gap-bottom">
-            <label for="author">Choose an author:</label>
 
-            <select name="author">
-              <option value="" selected disabled>Choose an author</option>
-              <?php
-              foreach ($authors as $author) {
-              ?>
-                <option value="<?php echo ($author['id']) ?>"><?php echo ($author['first_name'] . " " . $author['last_name']) ?></option>
-              <?php
-              }
-              ?>
-            </select>
+        <form method="POST" action="create-author.php">
+          <div class="u-gap-bottom">
+            <label for="name">First name</label>
+            <input type="text" name="first_name" id="name" required>
           </div>
 
           <div class="u-gap-bottom">
-            <label>Title</label>
-            <input type="text" name="title" required>
+            <label for="l-name">Last name</label>
+            <input type="text" name="last_name" id="l-name" required>
           </div>
 
           <div class="u-gap-bottom">
-            <label>Content</label>
-            <textarea name="body" required></textarea>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="male" id="male">
           </div>
 
-
+          <div class="u-gap-bottom">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="female" id="female">
+          </div>
 
           <div class="u-gap-bottom">
             <button>Save</button>
